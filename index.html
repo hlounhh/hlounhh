@@ -5,13 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hoàng Trọng Lương</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    :root {
+      --bg: #e6e6e6;
+      --card: #f2f2f2;
+      --text: #111827;
+      --border: #111827;
+      --gray: #6b7280;
+      --grid: #cfd2d6;
+    }
+
     body {
       font-family: "Roboto Mono", monospace;
-      background: #e6e6e6;
+      background-color: var(--bg);
+      color: var(--text);
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 16px 16px;
+      overflow-y: auto;
+    }
+
+    .os-window {
+      background: var(--card);
+      border: 4px solid var(--border);
+      box-shadow: 6px 6px 0 var(--gray);
+    }
+
+    .exe-title {
+      font-family: "VT323", monospace;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border: 4px solid var(--border);
+      image-rendering: pixelated;
+      filter: grayscale(10%) contrast(105%);
+    }
+
+    .name-box {
+      font-family: "VT323", monospace;
+      font-size: 30px;
+      letter-spacing: 2px;
+      background: #e0e0e0;
+      border: 3px solid var(--border);
+      box-shadow: 4px 4px 0 var(--gray);
+      padding: 6px 14px;
+      text-align: center;
+    }
+
+    .pixel-card {
+      background: var(--card);
+      border: 3px solid var(--border);
+      box-shadow: 4px 4px 0 var(--gray);
+      padding: 14px;
+    }
+
+    .tag {
+      font-family: "VT323", monospace;
+      font-size: 16px;
+      padding: 4px 8px;
+      background: #e0e0e0;
+      border: 2px solid var(--border);
+      box-shadow: 2px 2px 0 var(--gray);
+    }
+
+    .skill-bar {
+      height: 10px;
+      border: 2px solid var(--border);
+      background: #e0e0e0;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: var(--border);
     }
   </style>
 </head>
@@ -21,23 +98,61 @@
   <!-- AUDIO -->
   <audio id="bgm" src="123.mp3" preload="auto" loop></audio>
 
-  <div class="w-full max-w-2xl p-6 border-4 border-black bg-gray-200 shadow-lg">
-    <h1 class="text-xl font-bold">Hoàng Trọng Lương</h1>
-    <p>Click đâu cũng được để bật nhạc 🎵</p>
+  <div class="os-window w-full max-w-4xl p-4">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-4">
+      <span class="exe-title">Tôi Yêu Em,béo à</span>
+      <span id="clock" class="exe-title"></span>
+    </div>
+
+    <!-- Content -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Left -->
+      <div class="flex flex-col items-center gap-3">
+        <img
+          src="https://i.pinimg.com/736x/4d/b7/e8/4db7e8ab2db37421bde7fca86523d694.jpg"
+          class="avatar"
+        />
+        <div class="name-box">HOÀNG TRỌNG LƯƠNG</div>
+      </div>
+    </div>
   </div>
 
   <script>
-    const audio = document.getElementById("bgm");
+    // Clock
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent =
+        now.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
 
-    function enableAudio() {
+    // ===== AUTO PLAY ON TOUCH / SCROLL / CLICK =====
+    const audio = document.getElementById("bgm");
+    let played = false;
+
+    function playMusic() {
+      if (played) return;
       audio.volume = 1;
-      audio.play();
-      document.removeEventListener("click", enableAudio);
-      document.removeEventListener("touchstart", enableAudio);
+      audio.play().then(() => {
+        played = true;
+        removeEvents();
+      }).catch(() => {});
     }
 
-    document.addEventListener("click", enableAudio);
-    document.addEventListener("touchstart", enableAudio);
+    function removeEvents() {
+      document.removeEventListener("click", playMusic);
+      document.removeEventListener("touchstart", playMusic);
+      document.removeEventListener("scroll", playMusic);
+      document.removeEventListener("wheel", playMusic);
+    }
+
+    document.addEventListener("click", playMusic, { passive: true });
+    document.addEventListener("touchstart", playMusic, { passive: true });
+    document.addEventListener("scroll", playMusic, { passive: true });
+    document.addEventListener("wheel", playMusic, { passive: true });
   </script>
 
 </body>
