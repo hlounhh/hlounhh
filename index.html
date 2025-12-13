@@ -138,75 +138,71 @@
         </div>
       </div>
 
-      <!-- Right -->
-      <div class="md:col-span-2 space-y-6">
+ <!-- Right -->
+<div class="md:col-span-2 space-y-4">
 
-        <!-- Hobbies -->
-        <div class="pixel-card">
-          <h2 class="exe-title mb-3">SỞ THÍCH</h2>
-          <div class="flex gap-2 flex-wrap">
-            <span class="tag">GAME</span>
-            <span class="tag">CODE</span>
-            <span class="tag">DESIGN</span>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- Favorites -->
-          <div class="pixel-card">
-            <h2 class="exe-title mb-4">YÊU THÍCH</h2>
-
-            <p class="text-sm mb-1">Minecraft</p>
-            <div class="skill-bar mb-3">
-              <div class="skill-fill" style="width:95%"></div>
-            </div>
-
-            <p class="text-sm mb-1">VS Code</p>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width:85%"></div>
-            </div>
-          </div>
-
-          <!-- Skills -->
-          <div class="pixel-card">
-            <h2 class="exe-title mb-4">KỸ NĂNG</h2>
-
-            <p class="text-sm mb-1">HTML / CSS – 80%</p>
-            <div class="skill-bar mb-3">
-              <div class="skill-fill" style="width:80%"></div>
-            </div>
-
-            <p class="text-sm mb-1">JavaScript – 15%</p>
-            <div class="skill-bar mb-3">
-              <div class="skill-fill" style="width:15%"></div>
-            </div>
-
-            <p class="text-sm mb-1">Thiết kế – 25%</p>
-            <div class="skill-bar mb-3">
-              <div class="skill-fill" style="width:25%"></div>
-            </div>
-
-            <p class="text-sm mb-1">Game Dev – 10%</p>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width:10%"></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
+  <!-- SỞ THÍCH (header nhỏ) -->
+  <div class="pixel-card">
+    <h2 class="exe-title mb-2">SỞ THÍCH</h2>
+    <div class="flex gap-3">
+      <span class="tag">GAME</span>
+      <span class="tag">CODE</span>
+      <span class="tag">DESIGN</span>
     </div>
   </div>
 
-  <script>
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").textContent =
-        now.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
+  <!-- Main content -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-</body>
-</html>
+    <!-- YÊU THÍCH (to hơn) -->
+    <div class="pixel-card md:col-span-1">
+      <h2 class="exe-title mb-3">YÊU THÍCH</h2>
+
+      <p class="text-sm mb-1">Minecraft</p>
+      <div class="skill-bar mb-3">
+        <div class="skill-fill" style="width:95%"></div>
+      </div>
+
+      <p class="text-sm mb-1">VS Code</p>
+      <div class="skill-bar">
+        <div class="skill-fill" style="width:85%"></div>
+      </div>
+    </div>
+
+    <!-- KỸ NĂNG (cao – gọn – dễ đọc) -->
+    <div class="pixel-card md:col-span-2">
+      <h2 class="exe-title mb-3">KỸ NĂNG</h2>
+
+      <div class="space-y-3">
+        <div>
+          <p class="text-sm">HTML / CSS – 80%</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:80%"></div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-sm">JavaScript – 15%</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:15%"></div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-sm">Thiết kế – 25%</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:25%"></div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-sm">Game Dev – 10%</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:10%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
