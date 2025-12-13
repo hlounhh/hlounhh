@@ -21,12 +21,7 @@
       --grid: #cfd2d6;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
       font-family: "Roboto Mono", monospace;
       background-color: var(--bg);
       color: var(--text);
@@ -34,16 +29,13 @@
         linear-gradient(var(--grid) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid) 1px, transparent 1px);
       background-size: 16px 16px;
-      overflow-x: hidden;
       overflow-y: auto;
     }
 
     .os-window {
       background: var(--card);
       border: 4px solid var(--border);
-      box-shadow: 8px 8px 0 var(--gray);
-      max-width: 1200px;
-      width: 100%;
+      box-shadow: 6px 6px 0 var(--gray);
     }
 
     .exe-title {
@@ -53,8 +45,8 @@
     }
 
     .avatar {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       object-fit: cover;
       border: 4px solid var(--border);
       image-rendering: pixelated;
@@ -63,14 +55,13 @@
 
     .name-box {
       font-family: "VT323", monospace;
-      font-size: 32px;
+      font-size: 30px;
       letter-spacing: 2px;
       background: #e0e0e0;
       border: 3px solid var(--border);
       box-shadow: 4px 4px 0 var(--gray);
-      padding: 6px 16px;
+      padding: 6px 14px;
       text-align: center;
-      width: 100%;
     }
 
     .pixel-card {
@@ -78,24 +69,21 @@
       border: 3px solid var(--border);
       box-shadow: 4px 4px 0 var(--gray);
       padding: 14px;
-      width: 100%;
     }
 
     .tag {
       font-family: "VT323", monospace;
       font-size: 16px;
-      padding: 4px 10px;
+      padding: 4px 8px;
       background: #e0e0e0;
       border: 2px solid var(--border);
       box-shadow: 2px 2px 0 var(--gray);
-      white-space: nowrap;
     }
 
     .skill-bar {
       height: 10px;
       border: 2px solid var(--border);
       background: #e0e0e0;
-      width: 100%;
     }
 
     .skill-fill {
@@ -103,31 +91,32 @@
       background: var(--border);
     }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
+    @media (max-width: 640px) {
       .avatar {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
       }
 
       .name-box {
-        font-size: 26px;
+        font-size: 24px;
+        padding: 6px 10px;
       }
 
       .exe-title {
         font-size: 18px;
       }
 
-      .os-window {
-        box-shadow: 4px 4px 0 var(--gray);
+      .pixel-card {
+        padding: 12px;
+        box-shadow: 3px 3px 0 var(--gray);
       }
     }
   </style>
 </head>
 
-<body class="flex justify-center p-3">
+<body class="flex items-start justify-center min-h-screen p-3">
 
-  <div class="os-window p-4">
+  <div class="os-window w-full max-w-4xl p-4">
 
     <!-- Header -->
     <div class="flex justify-between items-center mb-4">
@@ -135,10 +124,10 @@
       <span id="clock" class="exe-title"></span>
     </div>
 
-    <!-- Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <!-- Content -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-      <!-- LEFT -->
+      <!-- Left -->
       <div class="flex flex-col items-center gap-3">
         <img
           src="https://i.pinimg.com/736x/4d/b7/e8/4db7e8ab2db37421bde7fca86523d694.jpg"
@@ -147,7 +136,7 @@
 
         <div class="name-box">HOÀNG TRỌNG LƯƠNG</div>
 
-        <div class="pixel-card">
+        <div class="pixel-card w-full">
           <h2 class="exe-title mb-2">STATS</h2>
           <ul class="text-sm space-y-1">
             <li>Tuổi: 14</li>
@@ -157,8 +146,8 @@
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <div class="lg:col-span-2 flex flex-col gap-4">
+      <!-- Right -->
+      <div class="md:col-span-2 space-y-4">
 
         <div class="pixel-card">
           <h2 class="exe-title mb-2">SỞ THÍCH</h2>
