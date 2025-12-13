@@ -102,19 +102,85 @@
 
     <!-- Header -->
     <div class="flex justify-between items-center mb-4">
-      <span class="exe-title">Tôi Yêu Em,béo à</span>
+      <span class="exe-title">Tôi Yêu Em, Béo à</span>
       <span id="clock" class="exe-title"></span>
     </div>
 
     <!-- Content -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
       <!-- Left -->
       <div class="flex flex-col items-center gap-3">
-        <img
-          src="https://i.pinimg.com/736x/4d/b7/e8/4db7e8ab2db37421bde7fca86523d694.jpg"
-          class="avatar"
-        />
+        <img src="https://i.pinimg.com/736x/4d/b7/e8/4db7e8ab2db37421bde7fca86523d694.jpg" class="avatar" />
         <div class="name-box">HOÀNG TRỌNG LƯƠNG</div>
+
+        <div class="pixel-card w-full">
+          <h2 class="exe-title mb-2">STATS</h2>
+          <ul class="text-sm space-y-1">
+            <li>Tuổi: 14</li>
+            <li>Trạng thái: Online</li>
+            <li>Khu vực: Việt Nam</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="md:col-span-2 space-y-4">
+
+        <div class="pixel-card">
+          <h2 class="exe-title mb-2">SỞ THÍCH</h2>
+          <div class="flex gap-2 flex-wrap">
+            <span class="tag">GAME</span>
+            <span class="tag">CODE</span>
+            <span class="tag">DESIGN</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <div class="pixel-card">
+            <h2 class="exe-title mb-3">YÊU THÍCH</h2>
+            <p class="text-sm mb-1">Minecraft</p>
+            <div class="skill-bar mb-3">
+              <div class="skill-fill" style="width:95%"></div>
+            </div>
+            <p class="text-sm mb-1">VS Code</p>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:85%"></div>
+            </div>
+          </div>
+
+          <div class="pixel-card md:col-span-2">
+            <h2 class="exe-title mb-3">KỸ NĂNG</h2>
+            <div class="space-y-3">
+              <div>
+                <p class="text-sm">HTML / CSS – 80%</p>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width:80%"></div>
+                </div>
+              </div>
+              <div>
+                <p class="text-sm">JavaScript – 15%</p>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width:15%"></div>
+                </div>
+              </div>
+              <div>
+                <p class="text-sm">Thiết kế – 25%</p>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width:25%"></div>
+                </div>
+              </div>
+              <div>
+                <p class="text-sm">Game Dev – 10%</p>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width:10%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
@@ -129,13 +195,12 @@
     updateClock();
     setInterval(updateClock, 1000);
 
-    // ===== AUTO PLAY ON TOUCH / SCROLL / CLICK =====
+    // ===== PLAY MUSIC ON TOUCH / SCROLL / CLICK =====
     const audio = document.getElementById("bgm");
     let played = false;
 
     function playMusic() {
       if (played) return;
-      audio.volume = 1;
       audio.play().then(() => {
         played = true;
         removeEvents();
