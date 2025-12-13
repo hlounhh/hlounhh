@@ -5,90 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hoàng Trọng Lương</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Roboto+Mono&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root {
-      --bg: #e6e6e6;
-      --card: #f2f2f2;
-      --text: #111827;
-      --border: #111827;
-      --gray: #6b7280;
-      --grid: #cfd2d6;
-    }
-
     body {
       font-family: "Roboto Mono", monospace;
-      background-color: var(--bg);
-      color: var(--text);
-      background-image:
-        linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-      background-size: 16px 16px;
-      overflow-y: auto;
-    }
-
-    .os-window {
-      background: var(--card);
-      border: 4px solid var(--border);
-      box-shadow: 6px 6px 0 var(--gray);
-    }
-
-    .exe-title {
-      font-family: "VT323", monospace;
-      font-size: 20px;
-      letter-spacing: 1px;
-    }
-
-    .avatar {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border: 4px solid var(--border);
-      image-rendering: pixelated;
-      filter: grayscale(10%) contrast(105%);
-    }
-
-    .name-box {
-      font-family: "VT323", monospace;
-      font-size: 30px;
-      letter-spacing: 2px;
-      background: #e0e0e0;
-      border: 3px solid var(--border);
-      box-shadow: 4px 4px 0 var(--gray);
-      padding: 6px 14px;
-      text-align: center;
-    }
-
-    .pixel-card {
-      background: var(--card);
-      border: 3px solid var(--border);
-      box-shadow: 4px 4px 0 var(--gray);
-      padding: 14px;
-    }
-
-    .tag {
-      font-family: "VT323", monospace;
-      font-size: 16px;
-      padding: 4px 8px;
-      background: #e0e0e0;
-      border: 2px solid var(--border);
-      box-shadow: 2px 2px 0 var(--gray);
-    }
-
-    .skill-bar {
-      height: 10px;
-      border: 2px solid var(--border);
-      background: #e0e0e0;
-    }
-
-    .skill-fill {
-      height: 100%;
-      background: var(--border);
+      background: #e6e6e6;
     }
   </style>
 </head>
@@ -96,119 +19,25 @@
 <body class="flex items-start justify-center min-h-screen p-3">
 
   <!-- AUDIO -->
-  <audio id="bgm" src="123.mp3" preload="auto"></audio>
+  <audio id="bgm" src="123.mp3" preload="auto" loop></audio>
 
-  <div class="os-window w-full max-w-4xl p-4">
-
-    <!-- Header -->
-    <div class="flex justify-between items-center mb-4">
-      <span class="exe-title">Tôi Yêu Em, Béo à</span>
-      <span id="clock" class="exe-title"></span>
-    </div>
-
-    <!-- Content -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-      <!-- Left -->
-      <div class="flex flex-col items-center gap-3">
-        <img
-          src="https://i.pinimg.com/736x/4d/b7/e8/4db7e8ab2db37421bde7fca86523d694.jpg"
-          class="avatar"
-        />
-
-        <div class="name-box">HOÀNG TRỌNG LƯƠNG</div>
-
-        <div class="pixel-card w-full">
-          <h2 class="exe-title mb-2">STATS</h2>
-          <ul class="text-sm space-y-1">
-            <li>Tuổi: 14</li>
-            <li>Trạng thái: Online</li>
-            <li>Khu vực: Việt Nam</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Right -->
-      <div class="md:col-span-2 space-y-4">
-
-        <div class="pixel-card">
-          <h2 class="exe-title mb-2">SỞ THÍCH</h2>
-          <div class="flex gap-2 flex-wrap">
-            <span class="tag">GAME</span>
-            <span class="tag">CODE</span>
-            <span class="tag">DESIGN</span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-          <div class="pixel-card">
-            <h2 class="exe-title mb-3">YÊU THÍCH</h2>
-            <p class="text-sm mb-1">Minecraft</p>
-            <div class="skill-bar mb-3">
-              <div class="skill-fill" style="width:95%"></div>
-            </div>
-            <p class="text-sm mb-1">VS Code</p>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width:85%"></div>
-            </div>
-          </div>
-
-          <div class="pixel-card md:col-span-2">
-            <h2 class="exe-title mb-3">KỸ NĂNG</h2>
-            <div class="space-y-3">
-              <div>
-                <p class="text-sm">HTML / CSS – 80%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:80%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">JavaScript – 15%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:15%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">Thiết kế – 25%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:25%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">Game Dev – 10%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:10%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+  <div class="w-full max-w-2xl p-6 border-4 border-black bg-gray-200 shadow-lg">
+    <h1 class="text-xl font-bold">Hoàng Trọng Lương</h1>
+    <p>Click đâu cũng được để bật nhạc 🎵</p>
   </div>
 
   <script>
-    // Clock
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").textContent =
-        now.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    // Auto play music
     const audio = document.getElementById("bgm");
 
-    window.addEventListener("load", () => {
-      audio.play().catch(() => {
-        document.addEventListener("click", () => {
-          audio.play();
-        }, { once: true });
-      });
-    });
+    function enableAudio() {
+      audio.volume = 1;
+      audio.play();
+      document.removeEventListener("click", enableAudio);
+      document.removeEventListener("touchstart", enableAudio);
+    }
+
+    document.addEventListener("click", enableAudio);
+    document.addEventListener("touchstart", enableAudio);
   </script>
 
 </body>
