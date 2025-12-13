@@ -90,31 +90,13 @@
       height: 100%;
       background: var(--border);
     }
-
-    @media (max-width: 640px) {
-      .avatar {
-        width: 110px;
-        height: 110px;
-      }
-
-      .name-box {
-        font-size: 24px;
-        padding: 6px 10px;
-      }
-
-      .exe-title {
-        font-size: 18px;
-      }
-
-      .pixel-card {
-        padding: 12px;
-        box-shadow: 3px 3px 0 var(--gray);
-      }
-    }
   </style>
 </head>
 
 <body class="flex items-start justify-center min-h-screen p-3">
+
+  <!-- AUDIO -->
+  <audio id="bgm" src="123.mp3" preload="auto"></audio>
 
   <div class="os-window w-full max-w-4xl p-4">
 
@@ -160,14 +142,12 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-          <div class="pixel-card md:col-span-1">
+          <div class="pixel-card">
             <h2 class="exe-title mb-3">YÊU THÍCH</h2>
-
             <p class="text-sm mb-1">Minecraft</p>
             <div class="skill-bar mb-3">
               <div class="skill-fill" style="width:95%"></div>
             </div>
-
             <p class="text-sm mb-1">VS Code</p>
             <div class="skill-bar">
               <div class="skill-fill" style="width:85%"></div>
@@ -176,7 +156,6 @@
 
           <div class="pixel-card md:col-span-2">
             <h2 class="exe-title mb-3">KỸ NĂNG</h2>
-
             <div class="space-y-3">
               <div>
                 <p class="text-sm">HTML / CSS – 80%</p>
@@ -184,21 +163,18 @@
                   <div class="skill-fill" style="width:80%"></div>
                 </div>
               </div>
-
               <div>
                 <p class="text-sm">JavaScript – 15%</p>
                 <div class="skill-bar">
                   <div class="skill-fill" style="width:15%"></div>
                 </div>
               </div>
-
               <div>
                 <p class="text-sm">Thiết kế – 25%</p>
                 <div class="skill-bar">
                   <div class="skill-fill" style="width:25%"></div>
                 </div>
               </div>
-
               <div>
                 <p class="text-sm">Game Dev – 10%</p>
                 <div class="skill-bar">
@@ -214,6 +190,7 @@
   </div>
 
   <script>
+    // Clock
     function updateClock() {
       const now = new Date();
       document.getElementById("clock").textContent =
@@ -221,6 +198,17 @@
     }
     updateClock();
     setInterval(updateClock, 1000);
+
+    // Auto play music
+    const audio = document.getElementById("bgm");
+
+    window.addEventListener("load", () => {
+      audio.play().catch(() => {
+        document.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
+    });
   </script>
 
 </body>
