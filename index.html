@@ -1,224 +1,174 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hoàng Trọng Lương</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoàng Trọng Lương</title>
+    <meta name="description"
+        content="Hồ sơ năng lực kỹ thuật và portfolio của Hoàng Trọng Lương. Tập trung vào lập trình hệ thống, phát triển công cụ thực tiễn.">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Editorial & System Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..600;1,300..600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,500&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons CDN (Lightweight) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <style>
-    :root {
-      --bg: #e6e6e6;
-      --card: #f2f2f2;
-      --text: #111827;
-      --border: #111827;
-      --gray: #6b7280;
-      --grid: #cfd2d6;
-    }
-
-    body {
-      font-family: "Roboto Mono", monospace;
-      background-color: var(--bg);
-      color: var(--text);
-      background-image:
-        linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-      background-size: 16px 16px;
-      overflow-y: auto;
-    }
-
-    .os-window {
-      background: var(--card);
-      border: 4px solid var(--border);
-      box-shadow: 6px 6px 0 var(--gray);
-    }
-
-    .exe-title {
-      font-family: "VT323", monospace;
-      font-size: 20px;
-      letter-spacing: 1px;
-    }
-
-    .avatar {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border: 4px solid var(--border);
-      image-rendering: pixelated;
-      filter: grayscale(10%) contrast(105%);
-    }
-
-    .name-box {
-      font-family: "VT323", monospace;
-      font-size: 30px;
-      letter-spacing: 2px;
-      background: #e0e0e0;
-      border: 3px solid var(--border);
-      box-shadow: 4px 4px 0 var(--gray);
-      padding: 6px 14px;
-      text-align: center;
-    }
-
-    .pixel-card {
-      background: var(--card);
-      border: 3px solid var(--border);
-      box-shadow: 4px 4px 0 var(--gray);
-      padding: 14px;
-    }
-
-    .tag {
-      font-family: "VT323", monospace;
-      font-size: 16px;
-      padding: 4px 8px;
-      background: #e0e0e0;
-      border: 2px solid var(--border);
-      box-shadow: 2px 2px 0 var(--gray);
-    }
-
-    .skill-bar {
-      height: 10px;
-      border: 2px solid var(--border);
-      background: #e0e0e0;
-    }
-
-    .skill-fill {
-      height: 100%;
-      background: var(--border);
-    }
-  </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="flex items-start justify-center min-h-screen p-3">
+<body>
 
-  <!-- AUDIO -->
-  <audio id="bgm" src="123.mp3" preload="auto" loop></audio>
+    <!-- Subtle CSS noise overlay for paper-like texture -->
+    <div class="grain-overlay"></div>
 
-  <div class="os-window w-full max-w-4xl p-4">
+    <div class="dossier-layout">
 
-    <!-- Header -->
-    <div class="flex justify-between items-center mb-4">
-      <span class="exe-title">Tôi Yêu Em, Béo à</span>
-      <span id="clock" class="exe-title"></span>
+        <!-- SIDEBAR: Profile Card (Left Panel) -->
+        <aside class="dossier-sidebar">
+            <div class="profile-sticky-card">
+
+                <!-- Avatar (Dismon James) -->
+                <div class="avatar-block">
+                    <div class="avatar-frame">
+                        <img src="https://i.pinimg.com/736x/4d/b7/e8/4db7e8ab2db37421bde7fca86523d694.jpg"
+                            alt="Hoàng Trọng Lương (Dismon James)" class="avatar-img">
+                    </div>
+                </div>
+
+                <!-- Typing Name & Title -->
+                <div class="identity-block">
+                    <h1 class="profile-name" id="typing-name">Hoàng Trọng Lương</h1>
+                    <p class="profile-title" data-i18n="title_role">Web Developer & Automation Machine</p>
+                </div>
+
+                <!-- Bio Statement -->
+                <div class="bio-block">
+                    <p class="bio-statement" data-i18n="bio">Xây dựng các công cụ tự động hóa cá nhân, hiệu quả và có giá trị sử dụng thực tế.</p>
+                </div>
+
+                <!-- Technical Dossier Details -->
+                <div class="dossier-details">
+                    <div class="dossier-item">
+                        <span class="lbl" data-i18n="label_stack">CÔNG NGHỆ</span>
+                        <span class="val mono">TypeScript · C++</span>
+                    </div>
+                    <div class="dossier-item">
+                        <span class="lbl" data-i18n="label_location">ĐỊA ĐIỂM</span>
+                        <span class="val" data-i18n="val_location">Việt Nam</span>
+                    </div>
+                    <div class="dossier-item">
+                        <span class="lbl" data-i18n="label_status">BUỒN NGỦ</span>
+                        <span class="val status-green" data-i18n="val_status">Sẵn sàng</span>
+                    </div>
+                </div>
+
+                <!-- Social Links (Clean, no boxes, text-only style) -->
+                <div class="contact-links">
+                    <a href="https://github.com/hlounhh" target="_blank" rel="noopener noreferrer" class="link-item"
+                        id="github-anchor">
+                        <span class="link-text-wrapper">
+                            <i class="ph ph-github-logo"></i>
+                            <span>GitHub</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </a>
+                    <a href="https://discord.com/users/1312674288775593984" target="_blank" rel="noopener noreferrer"
+                        class="link-item" id="discord-anchor">
+                        <span class="link-text-wrapper">
+                            <i class="ph ph-discord-logo"></i>
+                            <span>Discord</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </a>
+                    <a href="mailto:hoangtrongluong97@gmail.com" class="link-item" id="email-anchor">
+                        <span class="link-text-wrapper">
+                            <i class="ph ph-envelope-simple"></i>
+                            <span>Email</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="vi" id="lang-btn-vi">VI</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="en" id="lang-btn-en">EN</button>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT: Dossier Sheets (Right Panel) -->
+        <main class="dossier-main">
+
+            <!-- Quote Section (Design Spine) -->
+            <section class="dossier-section scroll-reveal" id="philosophy-sec">
+                <blockquote class="manifesto-quote" data-i18n="quote">
+                    “Thế giới ra sao cũng được, miễn là người đó.”
+                </blockquote>
+                <cite class="manifesto-author">hlounhh</cite>
+                <div class="manifesto-license">
+                    <span data-i18n="license_label">Giấy phép mã nguồn mở yêu thích:</span>
+                    <span class="mono-license">MPL-2.0</span>
+                </div>
+            </section>
+
+
+            <!-- GitHub Repos Section -->
+            <section class="dossier-section scroll-reveal" id="repos-sec">
+                <span class="section-meta" data-i18n="meta_repos">REPOSITORIES</span>
+                <h2 class="section-title" data-i18n="title_repos">Kho mã nguồn GitHub</h2>
+
+                <div class="repos-grid-layout" id="repos-container">
+                    <!-- Dynamic Content from repositories.json -->
+                </div>
+            </section>
+
+            <!-- Tech Timeline Section -->
+            <section class="dossier-section scroll-reveal" id="timeline-sec">
+                <span class="section-meta" data-i18n="meta_timeline">EXPERIENCE</span>
+                <h2 class="section-title" data-i18n="title_timeline">Tiến trình hoạt động</h2>
+
+                <div class="dossier-timeline">
+
+                    <div class="timeline-row">
+                        <div class="timeline-time" data-i18n="time_daily">HẰNG NGÀY</div>
+                        <div class="timeline-detail">
+                            <h4 class="timeline-header" data-i18n="title_daily">Phát triển dự án EduZone</h4>
+                            <p class="timeline-text" data-i18n="text_daily">Học thế hệ mới, hòa mình cùng AI.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-time" data-i18n="time_winnest">2025 - 2026</div>
+                        <div class="timeline-detail">
+                            <h4 class="timeline-header" data-i18n="title_winnest_exp">Phát triển các dự án cá nhân</h4>
+                            <p class="timeline-text" data-i18n="text_winnest_exp">Thiết kế giải pháp tự động hóa và xây
+                                dựng phòng thí nghiệm tự động.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="dossier-footer">
+            <p>&copy; 2026 Hoàng Trọng Lương.</p>
+        </footer>
+
     </div>
 
-    <!-- Content -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-      <!-- Left -->
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://i.pinimg.com/736x/4d/b7/e8/4db7e8ab2db37421bde7fca86523d694.jpg" class="avatar" />
-        <div class="name-box">HOÀNG TRỌNG LƯƠNG</div>
-
-        <div class="pixel-card w-full">
-          <h2 class="exe-title mb-2">STATS</h2>
-          <ul class="text-sm space-y-1">
-            <li>Tuổi: 15</li>
-            <li>Trạng thái: Online</li>
-            <li>Khu vực: Việt Nam</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Right -->
-      <div class="md:col-span-2 space-y-4">
-
-        <div class="pixel-card">
-          <h2 class="exe-title mb-2">SỞ THÍCH</h2>
-          <div class="flex gap-2 flex-wrap">
-            <span class="tag">GAME</span>
-            <span class="tag">CODE</span>
-            <span class="tag">DESIGN</span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-          <div class="pixel-card">
-            <h2 class="exe-title mb-3">YÊU THÍCH</h2>
-            <p class="text-sm mb-1">Minecraft</p>
-            <div class="skill-bar mb-3">
-              <div class="skill-fill" style="width:95%"></div>
-            </div>
-            <p class="text-sm mb-1">VS Code</p>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width:85%"></div>
-            </div>
-          </div>
-
-          <div class="pixel-card md:col-span-2">
-            <h2 class="exe-title mb-3">KỸ NĂNG</h2>
-            <div class="space-y-3">
-              <div>
-                <p class="text-sm">HTML / CSS – 80%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:80%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">JavaScript – 15%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:15%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">Thiết kế – 25%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:25%"></div>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm">Game Dev – 10%</p>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width:10%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Clock
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").textContent =
-        now.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    // ===== PLAY MUSIC ON TOUCH / SCROLL / CLICK =====
-    const audio = document.getElementById("bgm");
-    let played = false;
-
-    function playMusic() {
-      if (played) return;
-      audio.play().then(() => {
-        played = true;
-        removeEvents();
-      }).catch(() => {});
-    }
-
-    function removeEvents() {
-      document.removeEventListener("click", playMusic);
-      document.removeEventListener("touchstart", playMusic);
-      document.removeEventListener("scroll", playMusic);
-      document.removeEventListener("wheel", playMusic);
-    }
-
-    document.addEventListener("click", playMusic, { passive: true });
-    document.addEventListener("touchstart", playMusic, { passive: true });
-    document.addEventListener("scroll", playMusic, { passive: true });
-    document.addEventListener("wheel", playMusic, { passive: true });
-  </script>
-
+    <!-- Animation & Typing script -->
+    <script src="script.js"></script>
 </body>
+
 </html>
