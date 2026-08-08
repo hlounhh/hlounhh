@@ -8,7 +8,7 @@
         "val_location": "Việt Nam",
         "label_status": "TRẠNG THÁI",
         "val_status": "Buồn Ngủ,Nhớ Em",
-        "quote": ""Xem quyết tâm đưa một kẻ bình thường đi được bao xa."",
+        "quote": "“Xem quyết tâm đưa một kẻ bình thường đi được bao xa.”",
         "license_label": "Giấy phép mã nguồn mở yêu thích:",
         "meta_featured": "FEATURED WORK",
         "desc_winnest": "Ứng dụng máy tính và dòng lệnh (CLI) được viết hoàn toàn bằng TypeScript trên Linux, hỗ trợ cài đặt và vận hành phần mềm Windows thông qua Wine với trải nghiệm được quản lý đồng bộ như Windows. Phần CLI/core đóng vai trò là nền tảng cốt lõi của sản phẩm, trong khi giao diện đồ họa Electron GUI sẽ gọi các logic cốt lõi này thông qua IPC của main process và không gọi trực tiếp đến Wine.",
