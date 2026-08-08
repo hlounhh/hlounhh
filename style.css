@@ -1,0 +1,696 @@
+/* ==========================================================================
+   STYLE SYSTEM — HOÀNG TRỌNG LƯƠNG PORTFOLIO
+   Design Vibe: Swiss Technical Dossier (Minimalist & High-End)
+   VARIANCE: 5 | MOTION: 3 | DENSITY: 3
+   ========================================================================== */
+
+/* 1. Design Tokens & Core Settings
+   ========================================================================== */
+:root {
+    /* Color Palette — Matte Graphite Paper Vibe */
+    --bg-base: #0E0E10;         /* Matte charcoal black */
+    --bg-surface: #151518;      /* Fine-grain graphite card background */
+    --text-primary: #E2E2E5;    /* Premium off-white */
+    --text-muted: #8E8E93;      /* Slate gray */
+    --text-highlight: #FFFFFF;  /* Pure white */
+    
+    --border-muffled: rgba(255, 255, 255, 0.05); /* Hair-line borders */
+    --border-active: rgba(255, 255, 255, 0.12);  /* Focus/hover borders */
+    
+    --accent-green: #10B981;    /* Online indicator */
+    
+    /* Typography */
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-mono: 'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace;
+    
+    /* Transition dynamics */
+    --transition-speed: 0.4s;
+    --transition-curve: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. Global Reset & Foundations
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+/* Global Subtle Noise Grain Overlay (GPU safe - fixed layer) */
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.012;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* 3. Layout Grid (Single Viewport - 100vh Zero Scroll)
+   ========================================================================== */
+.dossier-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 310px) 1fr;
+    gap: 48px;
+    max-width: 1140px;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0 auto;
+    padding: 3vh 28px;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+/* 4. Left Sidebar (Profile Card) — Original Aesthetic Proportions
+   ========================================================================== */
+.dossier-sidebar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-sticky-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transform: translateY(-5vh);
+}
+
+/* Avatar Frame */
+.avatar-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.avatar-frame {
+    width: 120px; /* Original 120px avatar */
+    height: 120px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-muffled);
+    padding: 4px;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.2) contrast(1.05);
+    transition: filter 0.4s ease;
+}
+
+.avatar-img:hover {
+    filter: grayscale(0) contrast(1);
+}
+
+/* Identity & Typewriter */
+.identity-block {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.profile-name {
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text-highlight);
+    min-height: 30px;
+}
+
+.profile-pseudonym {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    margin-top: 2px;
+}
+
+.profile-title {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+/* Typewriter cursor style */
+.typewriter-cursor {
+    color: var(--text-muted);
+    font-weight: 300;
+    animation: cursor-blink 0.8s infinite;
+    margin-left: 1px;
+    display: inline-block;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Bio */
+.bio-block {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bio-statement {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+/* Dossier details list (Technical blueprint feel) */
+.dossier-details {
+    width: 100%;
+    border-top: 1px solid var(--border-muffled);
+    border-bottom: 1px solid var(--border-muffled);
+    padding: 20px 0;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dossier-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.dossier-item .lbl {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.dossier-item .val {
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+.dossier-item .mono {
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.status-green {
+    color: var(--accent-green);
+    font-weight: 500;
+}
+
+/* Social & contact links (Text-only system layout) */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 6px 0;
+    border-bottom: 1px dashed transparent;
+    transition: all 0.3s ease;
+}
+
+.link-text-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.link-text-wrapper i {
+    font-size: 16px;
+    opacity: 0.75;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.link-item .ph-arrow-up-right {
+    font-size: 12px;
+    opacity: 0.4;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.link-item:hover {
+    color: var(--text-highlight);
+    border-bottom-color: var(--border-active);
+}
+
+.link-item:hover .link-text-wrapper i {
+    opacity: 1;
+    color: var(--text-highlight);
+}
+
+.link-item:hover .ph-arrow-up-right {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+/* Language Switcher */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 36px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-weight: 500;
+    padding: 2px 4px;
+    transition: color 0.3s ease;
+}
+
+.lang-btn:hover {
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    color: var(--text-highlight);
+    font-weight: 600;
+}
+
+.lang-divider {
+    color: rgba(255, 255, 255, 0.15);
+}
+
+/* 5. Right Main Content Area (Single Screen 100vh)
+   ========================================================================== */
+.dossier-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 60px;
+}
+
+.dossier-section {
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border-muffled);
+    margin-bottom: 22px;
+}
+
+.dossier-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Quote/Manifesto (Editorial Serif) */
+#philosophy-sec {
+    padding-top: 2px;
+}
+
+.manifesto-quote {
+    font-family: 'Open Sans', var(--font-sans);
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--text-highlight);
+    max-width: 600px;
+    margin-bottom: 8px;
+}
+
+.manifesto-author {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+    font-style: normal;
+}
+
+.manifesto-license {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mono-license {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-highlight);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid var(--border-muffled);
+}
+
+/* Section Header Metas */
+.section-meta {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    margin-bottom: 5px;
+}
+
+.section-title {
+    font-size: clamp(18px, 2.2vw, 21px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text-highlight);
+    margin-bottom: 12px;
+}
+
+/* 6. Repositories Grid (Block links) */
+.repos-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.repo-item-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-muffled);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s var(--transition-curve);
+}
+
+.repo-item-card:hover {
+    border-color: var(--border-active);
+    transform: translateY(-2px);
+}
+
+.repo-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.repo-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+}
+
+.repo-title i {
+    font-size: 14px;
+}
+
+.repo-anchor {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-highlight);
+    text-decoration: none;
+}
+
+.tag-pub {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-muffled);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.repo-description {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+
+.repo-card-bottom {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+}
+
+.lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.indicator.ts { background-color: #3178c6; }
+.indicator.cpp { background-color: #f34b7d; }
+.indicator.html { background-color: #e34c26; }
+.indicator.py { background-color: #3572A5; }
+.indicator.csharp { background-color: #178600; }
+.indicator.md { background-color: #707075; }
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* 7. Experience Timeline */
+.dossier-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.timeline-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    align-items: baseline;
+}
+
+.timeline-time {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.timeline-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.timeline-header {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-highlight);
+    margin-bottom: 3px;
+}
+
+.timeline-text {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+
+/* 8. Footer */
+.dossier-footer {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 12px;
+    margin-top: auto;
+    width: 100%;
+}
+
+.dossier-footer p {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* 9. Immediate entry transitions (Single Page - No Scroll Needed) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
+    transition: opacity 0.6s var(--transition-curve), 
+                transform 0.6s var(--transition-curve), 
+                filter 0.6s var(--transition-curve);
+    will-change: transform, opacity, filter;
+}
+
+.scroll-reveal.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* 10. Responsive Adaptations (Mobile / Small Height Viewports)
+   ========================================================================== */
+@media (max-width: 960px), (max-height: 640px) {
+    html, body {
+        height: auto;
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .dossier-layout {
+        height: auto;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 24px 16px;
+    }
+    
+    .dossier-sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+    
+    .profile-sticky-card {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: none;
+        border-bottom: 1px solid var(--border-muffled);
+        padding-bottom: 24px;
+    }
+    
+    .avatar-block {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+
+    .avatar-frame {
+        width: 96px;
+        height: 96px;
+        padding: 3px;
+    }
+    
+    .identity-block {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 14px;
+    }
+    
+    .bio-block {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .dossier-details {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 16px 0;
+    }
+    
+    .contact-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+    
+    .link-item {
+        border-bottom: none;
+        padding: 4px 0;
+    }
+
+    .lang-switcher {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .dossier-main {
+        height: auto;
+        padding-top: 0;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    .repos-grid-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+}
+
+/* 11. Accessibility (Reduced Motion)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

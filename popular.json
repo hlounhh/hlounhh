@@ -1,0 +1,14 @@
+[
+    {
+        "id": "mastemis",
+        "title": "Mastemis",
+        "year": "2026",
+        "tech": ["C#", "Uno Platform"],
+        "url": "https://github.com/dismonjames/Mastemis",
+        "image": "winnest_preview.jpg",
+        "description": {
+            "vi": "một nền tảng chấm bài và tổ chức kỳ thi lập trình mã nguồn mở, có thể tự lưu trữ. Kho lưu trữ này cung cấp một phần chức năng hoàn chỉnh phía máy chủ cho hệ thống thi, cùng với một tiến trình chấm bài Linux riêng biệt theo cơ chế *fail-closed*, hỗ trợ biên dịch C++ và C#, kiểm tra kết quả theo chế độ khớp chính xác (*exact*) hoặc theo token, cơ chế thuê (lease) bằng PostgreSQL, báo cáo kết quả theo giao dịch (transactional), và phân phối thông qua SignalR. Dữ liệu triển khai vẫn nằm trên hạ tầng do đơn vị vận hành lựa chọn; ứng dụng không chứa bất kỳ cơ chế thu thập dữ liệu từ xa (telemetry) nào của bên bảo trì.",
+            "en": "an open-source, self-hosted programming examination and judging platform. This repository delivers a server-side examination vertical slice plus a separate fail-closed Linux judge worker with C++ and C# compilation, exact/token checking, PostgreSQL leases, transactional result reporting, and SignalR delivery. Deployment data remains on infrastructure selected by the operator; the application contains no maintainer telemetry."
+        }
+    }
+]

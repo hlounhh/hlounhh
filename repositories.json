@@ -1,0 +1,26 @@
+[
+    {
+        "name": "AutoLab",
+        "url": "https://github.com/hlounhh/AutoLab",
+        "visibility": "Public",
+        "lang": "Python",
+        "lang_class": "py",
+        "stars": 12,
+        "description": {
+            "vi": "Hệ thống tự động hóa môi trường thử nghiệm và tối ưu quy trình kiểm thử phần mềm.",
+            "en": "Automated laboratory testing environment and software workflow optimization."
+        }
+    },
+    {
+        "name": "hlounhh",
+        "url": "https://github.com/hlounhh/hlounhh",
+        "visibility": "Public",
+        "lang": "HTML",
+        "lang_class": "html",
+        "stars": 6,
+        "description": {
+            "vi": "Không gian lưu trữ thông tin cá nhân, định hình phong cách và dự án.",
+            "en": "Personal identity repository showcasing portfolio details and projects."
+        }
+    }
+]
