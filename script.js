@@ -37,7 +37,7 @@ const fallbackTranslations = {
         "label_stack": "TECHNOLOGY",
         "label_location": "LOCATION",
         "val_location": "Vietnam",
-        "label_status": "STATUS"
+        "label_status": "STATUS",
         "val_status": "Sleepy, Miss You",
         "quote": "“Let’s see how far sheer determination can take an ordinary person.”",
         "license_label": "Preferred open-source license:",
@@ -102,7 +102,13 @@ async function initLocalization() {
     
     // 1. Fetch Translations
     try {
-        const response = await fetch("translations.json");
+        const response = await fetch(
+            "translations.json?v=" + Date.now(),
+            {
+                cache: "no-store"
+            }
+        );
+
         if (response.ok) {
             activeTranslations = await response.json();
         }
@@ -112,7 +118,13 @@ async function initLocalization() {
 
     // 3. Fetch Repositories
     try {
-        const repoRes = await fetch("repositories.json");
+        const repoRes = await fetch(
+            "repositories.json?v=" + Date.now(),
+            {
+                cache: "no-store"
+            }
+        );
+
         if (repoRes.ok) {
             reposList = await repoRes.json();
         }
@@ -264,4 +276,3 @@ function initScrollReveal() {
     revealElements.forEach(el => {
         el.classList.add("reveal-active");
     });
-}
