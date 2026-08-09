@@ -24,6 +24,11 @@
 
 <body>
 
+    <!-- Background music: music.mp3 lives beside index.html and script.js -->
+    <audio id="bg-music" preload="auto" loop playsinline>
+        <source src="./music.mp3?v=202608100028" type="audio/mpeg">
+    </audio>
+
     <!-- Subtle CSS noise overlay for paper-like texture -->
     <div class="grain-overlay"></div>
 
@@ -167,8 +172,8 @@
 
     </div>
 
-    <!-- Animation & Typing script -->
-    <script src="script.js"></script>
+    <!-- Animation, typing, localization & music logic -->
+    <script src="script.js?v=202608100028"></script>
 </body>
 
 </html>
