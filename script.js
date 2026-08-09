@@ -97,54 +97,64 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * Starts background music as soon as the browser allows it.
- * If autoplay with sound is blocked, the first touch/click/pointer interaction
- * anywhere on the page immediately starts playback.
- * Expected audio file: music.mp3 in the repository root.
+ * Starts music directly from the first real user gesture.
+ * The <audio id="bg-music"> element is declared in index.html and points to
+ * music.mp3 in the repository root.
  */
 function initBackgroundMusic() {
-    const music = new Audio("music.mp3");
-    music.loop = true;
-    music.preload = "auto";
-    music.volume = 0.35;
+    const music = document.getElementById("bg-music");
+    if (!music) {
+        console.warn("[music] #bg-music element was not found.");
+        return;
+    }
 
+    music.volume = 0.5;
+    music.loop = true;
+    window.backgroundMusic = music;
+
+    const interactionEvents = ["pointerdown", "touchstart", "mousedown", "click", "keydown"];
+    let starting = false;
     let started = false;
 
     const removeInteractionListeners = () => {
-        document.removeEventListener("pointerdown", startFromInteraction, true);
-        document.removeEventListener("touchstart", startFromInteraction, true);
-        document.removeEventListener("click", startFromInteraction, true);
-        document.removeEventListener("keydown", startFromInteraction, true);
+        interactionEvents.forEach(eventName => {
+            window.removeEventListener(eventName, startMusic, true);
+        });
     };
 
-    const tryPlay = async () => {
-        if (started) return true;
+    function startMusic() {
+        if (started || starting) return;
 
-        try {
-            await music.play();
+        // Call play() synchronously inside the trusted user gesture handler.
+        // This is important for Android Chrome/Safari autoplay policies.
+        starting = true;
+        const playPromise = music.play();
+
+        if (playPromise && typeof playPromise.then === "function") {
+            playPromise.then(() => {
+                started = true;
+                starting = false;
+                removeInteractionListeners();
+                console.log("[music] Playback started.");
+            }).catch(error => {
+                starting = false;
+                console.warn("[music] Playback was blocked or failed:", error);
+            });
+        } else {
             started = true;
+            starting = false;
             removeInteractionListeners();
-            return true;
-        } catch (error) {
-            return false;
         }
-    };
-
-    function startFromInteraction() {
-        tryPlay();
     }
 
-    // Try immediately for browsers/sites that already allow audible autoplay.
-    tryPlay();
+    // Capture phase lets any tap/click anywhere on the page unlock audio first,
+    // even when the target itself is a link, button, or other interactive element.
+    interactionEvents.forEach(eventName => {
+        window.addEventListener(eventName, startMusic, true);
+    });
 
-    // Fallback: the first real user interaction unlocks audio instantly.
-    document.addEventListener("pointerdown", startFromInteraction, true);
-    document.addEventListener("touchstart", startFromInteraction, true);
-    document.addEventListener("click", startFromInteraction, true);
-    document.addEventListener("keydown", startFromInteraction, true);
-
-    // Keep a reference so the Audio instance is not garbage-collected.
-    window.backgroundMusic = music;
+    // Begin fetching/decoding the file before the first tap when possible.
+    music.load();
 }
 
 /**
