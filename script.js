@@ -7,14 +7,14 @@
 // Embedded fallback translations in case of CORS limitations when opening via file:// protocol
 const fallbackTranslations = {
     "vi": {
-        "title": "Hoàng Trọng Lương — Kỹ sư Phần mềm",
+        "title": "Hoàng Trọng Lương ",
         "title_role": "Web Developer & Automation Machine",
         "bio": "Xây dựng các công cụ tự động hóa cá nhân, hiệu quả và có giá trị sử dụng thực tế.",
         "label_stack": "CÔNG NGHỆ",
         "label_location": "ĐỊA ĐIỂM",
         "val_location": "Việt Nam",
         "label_status": "TRẠNG THÁI",
-        "val_status": "Buồn Ngủ, Nhớ Em",
+        "val_status": "Nhớ Em",
         "quote": "“Xem quyết tâm đưa một kẻ bình thường đi được bao xa.”",
         "license_label": "Giấy phép mã nguồn mở yêu thích:",
         "meta_featured": "FEATURED WORK",
@@ -32,14 +32,14 @@ const fallbackTranslations = {
         "text_winnest_exp": "Thiết kế giải pháp tự động hóa và xây dựng phòng thí nghiệm tự động."
     },
     "en": {
-        "title": "Hoàng Trọng Lương — Software Engineer",
+        "title": "Hoàng Trọng Lương",
         "title_role": "Web Developer & Automation Machine",
         "bio": "Building personal automation tools that are efficient and practical for real-world use.",
         "label_stack": "TECHNOLOGY",
         "label_location": "LOCATION",
         "val_location": "Vietnam",
         "label_status": "STATUS",
-        "val_status": "Sleepy, Miss You",
+        "val_status": "Miss You",
         "quote": "“Let’s see how far sheer determination can take an ordinary person.”",
         "license_label": "Preferred open-source license:",
         "meta_featured": "FEATURED WORK",
