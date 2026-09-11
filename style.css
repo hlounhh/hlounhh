@@ -47,6 +47,8 @@ html {
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
+    /* Default 90% layout zoom (desktop) */
+    zoom: 0.9;
 }
 
 body {
@@ -74,14 +76,16 @@ body {
 .dossier-layout {
     display: grid;
     grid-template-columns: minmax(280px, 310px) 1fr;
-    gap: 48px;
+    grid-template-rows: 1fr auto;
+    column-gap: 48px;
+    row-gap: 16px;
     max-width: 1140px;
     height: 100vh;
     height: 100dvh;
     margin: 0 auto;
     padding: 3vh 28px;
     box-sizing: border-box;
-    align-items: stretch;
+    align-items: center;
 }
 
 /* 4. Left Sidebar (Profile Card) — Original Aesthetic Proportions
@@ -98,7 +102,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    transform: translateY(-5vh);
+    transform: none;
 }
 
 /* Avatar Frame */
@@ -207,8 +211,9 @@ body {
 .dossier-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     font-size: 13px;
+    line-height: 1.5;
 }
 
 .dossier-item .lbl {
@@ -255,19 +260,28 @@ body {
 }
 
 .link-text-wrapper {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
+    line-height: 1.5;
 }
 
 .link-text-wrapper i {
     font-size: 16px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(1px);
     opacity: 0.75;
     transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .link-item .ph-arrow-up-right {
     font-size: 12px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
     opacity: 0.4;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -302,8 +316,13 @@ body {
     border: none;
     color: var(--text-muted);
     cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
     font-weight: 500;
-    padding: 2px 4px;
+    line-height: 1;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
     transition: color 0.3s ease;
 }
 
@@ -318,6 +337,9 @@ body {
 
 .lang-divider {
     color: rgba(255, 255, 255, 0.15);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
 }
 
 /* 5. Right Main Content Area (Single Screen 100vh)
@@ -325,15 +347,16 @@ body {
 .dossier-main {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 28px;
     height: 100%;
-    padding-top: 60px;
+    padding-top: 0;
 }
 
 .dossier-section {
     padding-bottom: 22px;
     border-bottom: 1px solid var(--border-muffled);
-    margin-bottom: 22px;
+    margin-bottom: 0;
 }
 
 .dossier-section:last-of-type {
@@ -364,25 +387,6 @@ body {
     letter-spacing: 0.05em;
     text-transform: lowercase;
     font-style: normal;
-}
-
-.manifesto-license {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.mono-license {
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    color: var(--text-highlight);
-    background: rgba(255, 255, 255, 0.03);
-    padding: 2px 7px;
-    border-radius: 4px;
-    border: 1px solid var(--border-muffled);
 }
 
 /* Section Header Metas */
@@ -552,7 +556,7 @@ body {
     justify-content: center;
     text-align: center;
     padding-top: 12px;
-    margin-top: auto;
+    margin-top: 0;
     width: 100%;
 }
 
@@ -587,6 +591,8 @@ body {
         min-height: 100dvh;
         overflow-x: hidden;
         overflow-y: auto;
+        /* Keep 100% on mobile / short screens */
+        zoom: 1;
     }
 
     .dossier-layout {
