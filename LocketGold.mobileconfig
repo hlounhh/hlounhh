@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>DNSSettings</key>
+            <dict>
+                <key>DNSProtocol</key>
+                <string>HTTPS</string>
+                <key>ServerURL</key>
+                <string>https://api.p12.vn/dns-query</string>
+                <key>SupplementalMatchDomains</key>
+                <array>
+                    <string>api.revenuecat.com</string>
+                    <string>app.revenuecat.com</string>
+                    <string>in.appcenter.ms</string>
+                    <string>app-measurement.com</string>
+                    <string>firebaselogging-pa.googleapis.com</string>
+                    <string>mixpanel.com</string>
+                    <string>api.mixpanel.com</string>
+                </array>
+            </dict>
+            <key>OnDemandRules</key>
+            <array>
+                <dict>
+                    <key>Action</key>
+                    <string>Connect</string>
+                    <key>InterfaceTypeMatch</key>
+                    <string>WiFi</string>
+                </dict>
+                <dict>
+                    <key>Action</key>
+                    <string>Connect</string>
+                    <key>InterfaceTypeMatch</key>
+                    <string>Cellular</string>
+                </dict>
+            </array>
+            <key>PayloadDescription</key>
+            <string>Tính năng chính: Giữ Locket Gold 
+Cam kết: 
+✅Không ảnh hưởng hiệu năng
+✅Không làm nóng máy
+✅Không thu thập thông tin mạng</string>
+            <key>PayloadDisplayName</key>
+            <string>LocketGold</string>
+            <key>PayloadIdentifier</key>
+            <string>com.trongluong.dns.locketgold</string>
+            <key>PayloadType</key>
+            <string>com.apple.dnsSettings.managed</string>
+            <key>PayloadUUID</key>
+            <string>B92B3C39-6F7E-4090-9673-17EFD3EDC39B</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Tính năng chính: Giữ Locket Gold 
+Cam kết: 
+✅Không ảnh hưởng hiệu năng
+✅Không làm nóng máy
+✅Không thu thập thông tin mạng</string>
+    <key>PayloadDisplayName</key>
+    <string>LocketGold</string>
+    <key>PayloadIdentifier</key>
+    <string>com.trongluong.profile.locketgold</string>
+    <key>PayloadOrganization</key>
+    <string>TrongLuong</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>27568134-273B-4EE0-B631-4103E320CC8F</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
